@@ -21,6 +21,19 @@
             padding: 0;
         }
 
+        .profile-img {
+        width: 150px;              /* Taille du cercle (largeur) */
+        height: 150px;             /* Taille du cercle (hauteur - doit être égale à width) */
+        object-fit: cover;         /* Recadre l'image pour qu'elle remplisse le rond sans être déformée */
+        border-radius: 50%;        /* C'est cette ligne qui crée le cercle parfait */
+        border: 4px solid white;   /* Bordure blanche optionnelle pour faire joli */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre légère pour le relief */
+        margin-bottom: 1rem;       /* Espace entre l'image et le nom */
+        display: block;            /* Assure que l'image se comporte comme un bloc */
+        margin-left: auto;         /* Centre l'image horizontalement */
+        margin-right: auto;
+        }
+
         header {
             background-color: var(--card-bg);
             padding: 2rem 1rem;
@@ -98,6 +111,8 @@
 <body>
 
     <header>
+        <img src="images/CV.jpg" alt="Photo de profil" class="profile-img">
+
         <h1>Angéline PACREAU</h1>
         <p class="subtitle">Alternante en développement</p>
     </header>
@@ -161,16 +176,16 @@
             <h2>Contact</h2>
             <p>Intéressé par une collaboration ou une opportunité ?</p>
             <p>
-                📧 Email: <a href="mailto:votre.email@exemple.com">votre.email@exemple.com</a><br>
+                📧 Email: <a href="mailto:pacreau.ange@gmail.com">pacreau.ange@gmail.com</a><br>
                 💼 LinkedIn: <a href="#">linkedin.com/in/votre-profil</a><br>
-                🐙 GitHub: <a href="#">github.com/votre-pseudo</a>
+                🐙 GitHub: <a href="#">github.com/AngeP04</a>
             </p>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2024 [Votre Nom]. Hébergé avec passion.</p>
+        <p>&copy; 2024 PACREAU. Hébergé avec passion.</p>
     </footer>
 
 </body>

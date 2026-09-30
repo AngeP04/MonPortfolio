@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/images/CV.jpg",
+      "PackagePath": "staticwebassets/images/CV.jpg"
+    },
+    {
+      "Id": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/images/M31.webp",
+      "PackagePath": "staticwebassets/images/M31.webp"
+    },
+    {
       "Id": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/index.html",
       "PackagePath": "staticwebassets/index.html"
     },
