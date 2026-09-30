@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "k9PrjeBtgDFik55MtyWLPXPTUe6HFhYPpQpvKYyRn3U=",
+  "Source": "MonPortfolio",
+  "BasePath": "_content/MonPortfolio",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MonPortfolio/wwwroot",
+      "Source": "MonPortfolio",
+      "ContentRoot": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/",
+      "BasePath": "_content/MonPortfolio",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/index.html",
+      "SourceId": "MonPortfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/",
+      "BasePath": "_content/MonPortfolio",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    }
+  ]
+}
