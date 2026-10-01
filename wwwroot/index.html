@@ -4,117 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - PACREAU Angéline</title>
-    <style>
-        :root {
-            --primary-color: #5025eb;
-            --text-color: #1f2937;
-            --bg-color: #f3f4f6;
-            --card-bg: #ffffff;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        .profile-img {
-        width: 150px;              /* Taille du cercle (largeur) */
-        height: 150px;             /* Taille du cercle (hauteur - doit être égale à width) */
-        object-fit: cover;         /* Recadre l'image pour qu'elle remplisse le rond sans être déformée */
-        border-radius: 50%;        /* C'est cette ligne qui crée le cercle parfait */
-        border: 4px solid white;   /* Bordure blanche optionnelle pour faire joli */
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre légère pour le relief */
-        margin-bottom: 1rem;       /* Espace entre l'image et le nom */
-        display: block;            /* Assure que l'image se comporte comme un bloc */
-        margin-left: auto;         /* Centre l'image horizontalement */
-        margin-right: auto;
-        }
-
-        header {
-            background-color: var(--card-bg);
-            padding: 2rem 1rem;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        h1 { margin: 0; color: var(--primary-color); }
-        .subtitle { color: #6b7280; margin-top: 0.5rem; }
-
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            background: var(--card-bg);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; display: inline-block; }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .skill-tag {
-            background: #e0e7ff;
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s;
-        }
-
-        .project-card:hover { transform: translateY(-5px); }
-        .project-card h3 { margin-top: 0; }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-top: 1rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header>
-        <img src="images/CV.jpg" alt="Photo de profil" class="profile-img">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
+            <span id="theme-icon">🌙</span>
+            <span id="theme-text">Mode Sombre</span>
+        </button>
 
-        <h1>Angéline PACREAU</h1>
-        <p class="subtitle">Alternante en développement</p>
+        <div class="header-content">
+            <img src="images/CV.jpg" alt="Photo de profil" class="profile-img">
+
+            <div class="header-text">
+                <h1>Angéline PACREAU</h1>
+                <p class="subtitle">Alternante en expert IT, développement et bases de données</p>
+            </div>
+        </div>
     </header>
 
     <div class="container">
@@ -123,9 +30,14 @@
         <section id="about">
             <h2>À propos</h2>
             <p>
-                Passionnée par le développement avec 1 an d'expérience. 
-                J'aime résoudre des problèmes complexes et créer des applications intuitives. 
-                Actuellement à la recherche de nouvelles opportunités à Strasbourg et ses alentours.
+                Passionnée par le développement, j'aime résoudre des problèmes complexes et créer des applications intuitives. 
+                Je suis actuellement à la recherche de nouvelles opportunités à Strasbourg et ses alentours.
+            </p>
+
+            <p>
+                <a href="files/CV_2026-09-28_Angéline_PACREAU.pdf" target="_blank" class="btn">
+                    📄 Télécharger mon CV (PDF)
+                </a>
             </p>
         </section>
 
@@ -135,8 +47,13 @@
             <div class="skills-grid">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">SQL / PostgreSQL</span>
-                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Gestion de données</span>
+                <span class="skill-tag">Automatisation</span>
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">COBOL</span>
                 <span class="skill-tag">Git</span>
+                <span class="skill-tag">GitHub</span>
                 <!-- Ajoutez vos autres compétences ici -->
             </div>
         </section>
@@ -148,24 +65,59 @@
                 
                 <!-- Projet 1 -->
                 <article class="project-card">
-                    <h3>Nom du Projet 1</h3>
-                    <p>Une brève description du projet. Expliquez le problème résolu et les technologies utilisées (ex: Application de gestion de tâches créée avec React et Firebase).</p>
-                    <a href="#" class="btn">Voir le code (GitHub)</a>
-                    <a href="#" class="btn">Voir la démo</a>
+                    <h3>Etude de simulations d'amas globulaires</h3>
+                    <img src="images/Projet1.png" alt="Capture d'écran du Projet 1" class="project-image">
+                    <p class="project-description">
+                        Ce projet repose sur le développement d'une chaîne de traitement automatisée en Python pour analyser des simulations N-corps à grande échelle (500 000 particules) générées par le code Nbody6++GPU sur le supercalculateur Jean-Zay. 
+                        J'ai conçu un ensemble de scripts modulaires exploitant Astropy pour le parsing de fichiers et NumPy pour le calcul vectoriel, capables d'ingérer des snapshots complexes afin d'extraire des paramètres dynamiques et structurels clés. 
+                        Le tout calculé dynamiquement par coquilles sphériques et pour des sous-populations spécifiques. 
+                        L'architecture logicielle inclut des fonctions d'agrégation statistique, des algorithmes de suivi temporel d'objets individuels à travers ~5 000 snapshots, et une génération automatisée de visualisations, le tout optimisé pour une exécution parallèle via Slurm sur environnement HPC.</p>
+                    <button class="toggle-btn">Voir plus</button>
+                    <div class="project-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Gestion de données</span>
+                        <span class="skill-tag">Automatisation</span>
+                    </div>
+                    <a href="files/Master_internship_final-1.pdf" target="_blank" class="btn">
+                        Explication du code en anglais
+                    </a>
                 </article>
 
                 <!-- Projet 2 -->
                 <article class="project-card">
-                    <h3>Nom du Projet 2</h3>
-                    <p>Description d'un autre projet significatif. Mettez en avant votre contribution spécifique si c'est un travail d'équipe.</p>
-                    <a href="#" class="btn">Voir le code (GitHub)</a>
+                    <h3>Travail d'équipe sur une batalle navale</h3>
+                    <img src="images/Projet2.jpeg" alt="Capture d'écran du Projet 2" class="project-image">
+                    <p class="project-description">
+                        Ce projet consiste en une application web de jeu de bataille navale multi-joueurs temps réel, architecturée autour d’un système d’authentification sécurisé imposant des critères de complexité sur les mots de passe et gérant des sessions utilisateurs persistantes. 
+                        Le cœur de l’application repose sur une logique métier serveur robuste qui orchestre le cycle de vie complet des parties : de la création de salons privés et la mise en file d’attente, à la phase stratégique de placement des navires, jusqu’à la résolution des tirs et la détection automatique des conditions de victoire. 
+                        L’interface utilisateur offre un tableau de bord centralisé regroupant l’historique des matchs, les sessions en cours et les invitations en attente, tandis qu’un module de messagerie instantanée intégré, permet aux joueurs de communiquer durant les affrontements. 
+                        L’ensemble assure une synchronisation immédiate des états de jeu (grilles, tirs, statut des navires) entre les adversaires, garantissant l’intégrité des règles et une expérience fluide sans nécessiter de rechargement de page.</p>
+                    <button class="toggle-btn">Voir plus</button>
+                    <div class="project-tags">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                    </div>
+                    <a href="https://github.com/TeamPOEI/battle-sheep.git" target="_blank" class="btn">Voir le code (GitHub)</a>
                 </article>
 
                 <!-- Projet 3 -->
                 <article class="project-card">
-                    <h3>Nom du Projet 3</h3>
-                    <p>Un outil ou une bibliothèque open source que vous avez contribué à développer.</p>
-                    <a href="#" class="btn">Voir le code (GitHub)</a>
+                    <h3>Projet personnelpour la collection</h3>
+                    <img src="images/Projet3.png" alt="Capture d'écran du Projet 3" class="project-image">
+                    <p class="project-description">Cette application web constitue un catalogue numérique et un générateur de listes de souhaits dédié aux photocards du groupe Ateez, implémentant une logique de filtrage et de catégorisation côté client. 
+                        L'architecture actuelle repose sur un traitement manuel des données et une génération de documents PDF embarquée, couplée à l'export de fichiers de configuration pour la persistance des sélections. 
+                        Cependant, l'absence de persistance serveur et la gestion statique du corpus d'images engendrent des limitations significatives en termes de scalabilité et de maintenabilité ; 
+                        une refonte vers une architecture pilotée par API s'impose pour découpler le frontend du backend, optimiser les requêtes de données massives et automatiser les mises à jour du catalogue.</p>
+                    <button class="toggle-btn">Voir plus</button>
+                    <div class="project-tags">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                    </div>
+                    <a href="https://github.com/AngeP04/AZApp.git" target="_blank" class="btn">Voir le code (GitHub)</a>
                 </article>
 
             </div>
@@ -177,8 +129,9 @@
             <p>Intéressé par une collaboration ou une opportunité ?</p>
             <p>
                 📧 Email: <a href="mailto:pacreau.ange@gmail.com">pacreau.ange@gmail.com</a><br>
-                💼 LinkedIn: <a href="#">linkedin.com/in/votre-profil</a><br>
-                🐙 GitHub: <a href="#">github.com/AngeP04</a>
+                💼 LinkedIn: <a href="https://www.linkedin.com/in/angéline-pacreau-b3145131b" target="_blank" rel="noopener noreferrer">
+                    linkedin.com/in/angéline-pacreau-b3145131b</a><br>
+                🐙 GitHub: <a href="https://www.github.com/AngeP04" target="_blank" rel="noopener noreferrer">github.com/AngeP04</a>
             </p>
         </section>
 
@@ -188,5 +141,6 @@
         <p>&copy; 2024 PACREAU. Hébergé avec passion.</p>
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 </html>

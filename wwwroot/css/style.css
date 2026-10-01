@@ -1,0 +1,252 @@
+:root {
+    --primary-color: #5025eb;
+    --text-color: #1f2937;
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+    --shadow-color: rgba(0,0,0,0.1);
+}
+
+body.dark-mode {
+    --text-color: #f3f4f6;       /* Texte clair */
+    --bg-color: #111827;         /* Fond très sombre (bleu nuit presque noir) */
+    --card-bg: #1f2937;          /* Cartes gris foncé */
+    --header-bg: #1f2937;
+    --shadow-color: rgba(0,0,0,0.3);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/M31.png'); /* Chemin vers votre image */
+    background-size: cover;        /* L'image couvre tout l'écran sans être déformée */
+    background-position: center;   /* Centre l'image */
+    background-repeat: no-repeat;  /* Empêche l'image de se répéter en mosaïque */
+    background-attachment: fixed;  /* L'image reste fixe quand on scrolle (effet parallaxe) */
+}
+
+header {
+    background-color: var(--header-bg);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column; /* Passe en colonne sur petit écran */
+        text-align: center;
+    }
+    
+    .header-text {
+        text-align: center; /* Recentre le texte sur mobile */
+    }
+    
+    .profile-img {
+        margin-bottom: 1rem; /* Ajoute un peu d'espace sous l'image sur mobile */
+    }
+}
+
+.header-content {
+    display: flex;             /* Active l'alignement horizontal */
+    align-items: center;       /* Centre verticalement l'image et le texte */
+    justify-content: center;   /* Centre le tout horizontalement dans le header (optionnel) */
+    gap: 2rem;                 /* Espace entre l'image et le texte */
+    max-width: 800px;          /* Largeur max pour ne pas que ça s'étale trop */
+    margin: 0 auto;            /* Centre le bloc entier */
+    position: relative; 
+    z-index: 1;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #5025eb;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: 0; 
+    flex-shrink: 0; /* Empêche l'image de rétrécir si l'écran est petit */
+}
+
+.header-text {
+    text-align: left; /* Aligne le texte à gauche dans son bloc */
+}
+
+h1 { margin: 0; color: var(--primary-color); }
+.subtitle { color: #6b7280; margin-top: 0.5rem; }
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    background: var(--card-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; display: inline-block; }
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;       /* Permet aux tags de passer à la ligne si besoin */
+    gap: 0.5rem;           /* Espace entre les bulles */
+    margin: 0.5rem 0 1rem 0; /* Espace au-dessus et en dessous des tags */
+    width: 100%;           /* Le conteneur prend la largeur, mais pas les enfants */
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-tag {
+    display: inline-block; /* CRUCIAL : La bulle ne prend que la largeur du texte */
+    background: #e0e7ff;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    white-space: nowrap;   /* Empêche le texte de se couper en deux lignes */
+    width: auto; 
+    max-width: 100%;
+}
+
+.projects-grid {
+    display: grid;
+    /* Crée autant de colonnes que possible, mais chaque carte fait au minimum 300px de large */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    align-items: start; /* CRUCIAL : Empêche l'étirement vertical des cartes */
+}
+
+.project-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+    background: var(--card-bg);
+    box-shadow: 0 1px 3px var(--shadow-color);
+    height: auto; /* Force la hauteur automatique */
+    display: flex;
+    flex-direction: column; 
+}
+
+.project-card p {
+    flex-grow: 1;
+}
+
+.project-card:hover { transform: translateY(-5px); }
+.project-card h3 { margin-top: 0; }
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.project-image {
+    width: 100%;             /* L'image prend toute la largeur de la carte */
+    height: 200px;           /* Hauteur fixe pour uniformiser toutes les cartes */
+    object-fit: cover;       /* Recadre l'image pour remplir le cadre sans la déformer */
+    border-radius: 8px 8px 0 0; /* Arrondit seulement les coins du haut (optionnel) */
+    margin-bottom: 1rem;     /* Espace entre l'image et le titre */
+    display: block;          /* Évite les espaces indésirables sous l'image */
+    flex-shrink: 0; /* Empêche l'image de s'écraser */
+}
+
+/* Conteneur pour gérer la position relative */
+.description-container {
+    /* position: relative; */
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+/* Le texte du projet */
+.project-description {
+    margin: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    
+    /* La magie opère ici : */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limite à 3 lignes */
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* Cache le reste */
+    
+    /* Transition douce pour l'ouverture */
+    transition: max-height 0.3s ease;
+}
+
+/* Classe ajoutée par JS pour tout afficher */
+.project-description.expanded {
+    -webkit-line-clamp: unset; /* Enlève la limite de lignes */
+    overflow: visible;
+}
+
+/* Le bouton Voir plus / Voir moins */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+    display: none; /* Caché par défaut, affiché seulement si le texte est long */
+}
+
+.toggle-btn:hover {
+    text-decoration: underline;
+}
+
+/* S'assurer que les boutons d'action sont bien en bas */
+.card-actions {
+    margin-top: auto; /* Pousse les boutons vers le bas si la carte est en flex */
+    display: flex;
+    gap: 0.5rem;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color); /* Inverse les couleurs au survol */
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
