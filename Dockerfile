@@ -19,4 +19,4 @@ EXPOSE 8080
 # ⚠️ MODIFIEZ LA LIGNE CI-DESSOUS ⚠️
 # Remplacez "MonNomDeProjet.dll" par le nom de VOTRE fichier .csproj (sans le .csproj)
 # Exemple : si votre projet s'appelle "MonPortfolio.csproj", écrivez "MonPortfolio.dll"
-ENTRYPOINT ["dotnet", "MonPortefolio.dll"]
+ENTRYPOINT ["dotnet", "MonPortfolio.dll"]
