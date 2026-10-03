@@ -1,0 +1,7 @@
+/home/asus/VisualStudioScripts/MonPortfolio/dist/MonPortfolio
+/home/asus/VisualStudioScripts/MonPortfolio/dist/appsettings.Development.json
+/home/asus/VisualStudioScripts/MonPortfolio/dist/appsettings.json
+/home/asus/VisualStudioScripts/MonPortfolio/dist/MonPortfolio.dll
+/home/asus/VisualStudioScripts/MonPortfolio/dist/MonPortfolio.deps.json
+/home/asus/VisualStudioScripts/MonPortfolio/dist/MonPortfolio.runtimeconfig.json
+/home/asus/VisualStudioScripts/MonPortfolio/dist/MonPortfolio.pdb

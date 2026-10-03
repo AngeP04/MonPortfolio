@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "Hash": "QXGCipeWdQpekuR65xOeVT6E3QLGTRHIGxvnc8dKbII=",
+  "Hash": "oTObnN9w3BH6xkQe62ar95CAJCoCQjWdtCLHl47vd30=",
   "Source": "MonPortfolio",
   "BasePath": "_content/MonPortfolio",
   "Mode": "Default",
-  "ManifestType": "Build",
+  "ManifestType": "Publish",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
