@@ -16,7 +16,6 @@ if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
 function enableDarkMode() {
     body.classList.add('dark-mode');
     themeIcon.textContent = '☀️';
-    themeText.textContent = 'Mode Clair';
     localStorage.setItem('theme', 'dark');
 }
 
@@ -24,7 +23,6 @@ function enableDarkMode() {
 function disableDarkMode() {
     body.classList.remove('dark-mode');
     themeIcon.textContent = '🌙';
-    themeText.textContent = 'Mode Sombre';
     localStorage.setItem('theme', 'light');
 }
 
@@ -76,6 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             }
+        }
+    });
+});
+
+// --- Mise en surbrillance du menu au scroll ---
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-list a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        // Si on a scrollé jusqu'à la section (avec un décalage de 100px pour le header)
+        if (pageYOffset >= (sectionTop - 150)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
         }
     });
 });

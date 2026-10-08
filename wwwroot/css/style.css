@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primary-color: #5025eb;
     --text-color: #1f2937;
@@ -34,6 +38,7 @@ header {
     padding: 2rem 1rem;
     text-align: center;
     box-shadow: 0 2px 4px var(--shadow-color);
+    padding-top: 80px;
 }
 
 @media (max-width: 600px) {
@@ -63,6 +68,56 @@ header {
         width: 16px;
         height: 16px;
         border-width: 3px;
+    }
+
+    .project-card {
+        flex-direction: column; /* Repasse en mode vertical sur mobile */
+        gap: 1rem;
+    }
+
+    .project-image {
+        width: 100%; /* L'image prend toute la largeur sur mobile */
+        height: 200px;
+        flex-shrink: 0;
+    }
+
+    .header-nav {
+        padding: 0.5rem 1rem;
+    }
+    
+    .nav-list {
+        gap: 0.2rem;
+    }
+    
+    .nav-list a {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .theme-toggle {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    /* On masque le texte du bouton pour ne garder que l'icône sur mobile */
+    #theme-text {
+        display: none;
+    }
+
+    .about-container {
+        flex-direction: column; /* Empile image et texte sur mobile */
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .about-image-wrapper {
+        width: 250px; /* Un peu plus petit sur mobile */
+        height: 320px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-text {
+        text-align: left; /* Garde le texte aligné à gauche pour la lisibilité */
     }
 }
 
@@ -112,11 +167,10 @@ section {
 h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; display: inline-block; }
 
 .project-tags {
+    margin-bottom: 0.5rem;
     display: flex;
-    flex-wrap: wrap;       /* Permet aux tags de passer à la ligne si besoin */
-    gap: 0.5rem;           /* Espace entre les bulles */
-    margin: 0.5rem 0 1rem 0; /* Espace au-dessus et en dessous des tags */
-    width: 100%;           /* Le conteneur prend la largeur, mais pas les enfants */
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .skills-grid {
@@ -139,22 +193,28 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 
 .projects-grid {
     display: grid;
-    /* Crée autant de colonnes que possible, mais chaque carte fait au minimum 300px de large */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    align-items: start; /* CRUCIAL : Empêche l'étirement vertical des cartes */
+    /* Force une seule colonne qui prend 100% de la largeur disponible */
+    grid-template-columns: 1fr; 
+    gap: 2rem; /* Un peu plus d'espace vertical entre les cartes puisqu'elles sont empilées */
+    align-items: start;
+    
+    /* Optionnel : Limite la largeur maximale pour que le texte ne soit pas trop large à lire sur grands écrans */
+    max-width: 900px; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .project-card {
     border: 1px solid #e5e7eb;
     border-radius: 8px;
     padding: 1.5rem;
-    transition: transform 0.2s;
+    /* transition: transform 0.2s; */
     background: var(--card-bg);
     box-shadow: 0 1px 3px var(--shadow-color);
-    height: auto; /* Force la hauteur automatique */
+    
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;  /* Titre au-dessus, corps en dessous */
+    gap: 1rem; /* Espace entre le titre et le reste (image/texte) */
 }
 
 .project-card p {
@@ -163,6 +223,23 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 
 .project-card:hover { transform: translateY(-5px); }
 .project-card h3 { margin-top: 0; }
+
+.project-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    width: 100%;
+    border-bottom: 2px solid var(--primary-color); /* Optionnel : petite ligne sous le titre */
+    padding-bottom: 0.5rem;
+}
+
+.card-body {
+    display: flex !important;       /* Force le mode flex */
+    flex-direction: row !important; /* Force l'alignement horizontal (Gauche-Droite) */
+    gap: 1.5rem;                    /* Espace entre image et texte */
+    align-items: flex-start;        /* Aligne le haut de l'image avec le haut du texte */
+    width: 100%;
+}
 
 .btn {
     display: inline-block;
@@ -175,20 +252,31 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 }
 
 .project-image {
-    width: 100%;             /* L'image prend toute la largeur de la carte */
-    height: 200px;           /* Hauteur fixe pour uniformiser toutes les cartes */
-    object-fit: cover;       /* Recadre l'image pour remplir le cadre sans la déformer */
-    border-radius: 8px 8px 0 0; /* Arrondit seulement les coins du haut (optionnel) */
-    margin-bottom: 1rem;     /* Espace entre l'image et le titre */
-    display: block;          /* Évite les espaces indésirables sous l'image */
-    flex-shrink: 0; /* Empêche l'image de s'écraser */
+    /* Dimensions fixes pour l'image */
+    width: 250px;       /* Largeur fixe (ajustez selon vos besoins) */
+    height: 180px;      /* Hauteur fixe */
+    flex-shrink: 0;     /* IMPORTANT : Empêche l'image de rétrécir si le texte est long */
+    
+    object-fit: cover;  /* Recadre l'image pour remplir le rectangle sans la déformer */
+    border-radius: 8px; /* Arrondi des coins (optionnel) */
+    display: block;
+    flex-shrink: 0;
+    
+    /* On retire le margin-bottom car l'espace est maintenant géré par le 'gap' du parent */
+    margin: 0; 
+}
+
+.project-card > *:not(.project-image) {
+    display: flex;
+    flex-direction: column; /* Empile titre, texte, boutons verticalement */
+    flex-grow: 1; /* Prend toute la largeur restante à droite */
+    height: 100%; /* Prend toute la hauteur de la carte */
+    justify-content: space-between; /* Pousse le premier élément (titre) en haut et le dernier (boutons) en bas */
 }
 
 /* Conteneur pour gérer la position relative */
 .description-container {
-    /* position: relative; */
-    flex-grow: 1;
-    margin-bottom: 1rem;
+    flex-grow: 1; /* Le texte prend tout l'espace disponible restant */
 }
 
 /* Le texte du projet */
@@ -196,21 +284,20 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
     margin: 0;
     color: var(--text-color);
     line-height: 1.6;
-    
-    /* La magie opère ici : */
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limite à 3 lignes */
-    -webkit-box-orient: vertical;
-    overflow: hidden; /* Cache le reste */
-    
-    /* Transition douce pour l'ouverture */
-    transition: max-height 0.3s ease;
 }
 
 /* Classe ajoutée par JS pour tout afficher */
 .project-description.expanded {
     -webkit-line-clamp: unset; /* Enlève la limite de lignes */
     overflow: visible;
+}
+
+.image-column {
+    display: flex;
+    flex-direction: column; /* Empile l'image et les tags verticalement */
+    gap: 0.75rem; /* Petit espace entre l'image et les tags */
+    width: 250px; /* Même largeur que l'image */
+    flex-shrink: 0; /* Empêche la colonne de rétrécir */
 }
 
 /* Le bouton Voir plus / Voir moins */
@@ -231,19 +318,25 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 
 /* S'assurer que les boutons d'action sont bien en bas */
 .card-actions {
-    margin-top: auto; /* Pousse les boutons vers le bas si la carte est en flex */
+    margin-top: auto; /* Pousse les boutons vers le bas si l'espace le permet */
     display: flex;
     gap: 0.5rem;
 }
 
+.card-text-column {
+    flex-grow: 1;       /* Prend tout l'espace restant à droite */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pousse les boutons tout en bas */
+    height: 100%;       /* Prend la hauteur de l'image */
+    min-width: 0;       /* Important pour le wrapping du texte */
+}
+
 .theme-toggle {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
     background: transparent;
     border: 2px solid var(--text-color);
     color: var(--text-color);
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
@@ -256,7 +349,7 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 
 .theme-toggle:hover {
     background-color: var(--text-color);
-    color: var(--bg-color); /* Inverse les couleurs au survol */
+    color: var(--bg-color);
 }
 
 /* Conteneur principal de la timeline */
@@ -351,6 +444,151 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
     opacity: 0.9;
 }
 
+.header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--card-bg);
+    padding: 0.75rem 2rem;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    z-index: 1000;
+    
+    
+    display: flex;
+    justify-content: flex-start; /* Tout aligné à gauche */
+    align-items: center;
+    gap: 2rem; /* Espace entre la liste des liens et le bouton Dark Mode */
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem; /* Espace entre les boutons du menu */
+}
+
+.nav-list li {
+    margin: 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: block;
+    font-size: 0.95rem;
+}
+
+/* Effet au survol */
+.nav-list a:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Effet pour la section active (optionnel, géré par le scroll) */
+.nav-list a.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* --- Section Centres d'intérêt --- */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.interest-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+.interest-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.interest-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.interest-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.85;
+    color: var(--text-color);
+}
+
+/* --- Conteneur principal de la section À propos --- */
+.about-container {
+    display: flex;
+    flex-direction: row; /* Image à gauche, texte à droite */
+    gap: 2rem;
+    align-items: center; /* Centre verticalement l'image et le texte */
+    margin-top: 1.5rem;
+    background: var(--card-bg); /* Fond blanc/gris comme les cartes */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* --- Le wrapper de l'image (pour gérer la taille) --- */
+.about-image-wrapper {
+    flex-shrink: 0; /* Empêche l'image de s'écraser */
+    width: 300px;   /* LARGEUR : Ajustez selon la taille désirée (ex: 250px à 400px) */
+    height: 400px;  /* HAUTEUR : Doit être plus grand que la largeur pour l'effet ovale vertical */
+}
+
+/* --- L'image elle-même : Style OVALE --- */
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadre l'image pour remplir l'ovale sans déformer */
+    display: block;
+    
+    /* LE SECRET DE L'OVALE : 
+       Un grand rayon vertical (50% de la hauteur) et un petit rayon horizontal (ex: 40% ou 45%) */
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; 
+    /* Cela crée une forme d'œuf ou d'ovale élégant. 
+       Vous pouvez tester 50% / 40% pour un ovale plus classique. */
+       
+    border: 4px solid var(--primary-color); /* Bordure colorée optionnelle */
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+/* --- Le texte --- */
+.about-text {
+    flex-grow: 1; /* Prend tout l'espace restant */
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--text-color);
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
 
 footer {
     text-align: center;

@@ -9,41 +9,168 @@
 <body>
 
     <header>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
-            <span id="theme-icon">🌙</span>
-            <span id="theme-text">Mode Sombre</span>
-        </button>
+        <nav class="header-nav">
+            <ul class="nav-list">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#education">Formation</a></li>
+                <li><a href="#interests">Centres d'intérêt</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        
+            <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
+                <span id="theme-icon">🌙</span>
+            </button>
+        </nav>
 
         <div class="header-content">
-            <img src="images/CV.jpg" alt="Photo de profil" class="profile-img">
-
             <div class="header-text">
                 <h1>Angéline PACREAU</h1>
                 <p class="subtitle">Alternante en expert IT, développement et bases de données</p>
             </div>
         </div>
+
     </header>
 
     <div class="container">
         
         <!-- Section À propos -->
         <section id="about">
-            <h2>À propos</h2>
-            <p>
-                Passionnée par le développement, j'aime résoudre des problèmes complexes et créer des applications intuitives. 
-                Je suis actuellement à la recherche de nouvelles opportunités à Strasbourg et ses alentours.
-            </p>
+            <div class="about-container">
+                <div class="about-image-wrapper">
+                    <img src="images/CV.jpg" alt="Photo de Angeline" class="about-image">
+                </div>
 
-            <p>
-                <a href="files/CV_2026-10-04_Angéline_PACREAU.pdf" target="_blank" class="btn">
-                    📄 Télécharger mon CV (PDF)
-                </a>
-            </p>
+                <div class="about-text">
+                    <h2>À propos</h2>
+                    <h3>Disponible immédiatement - 3 semaines entreprise/ 1 semaine école</h3>
+                    <p>
+                        Chaque nouveau langage est une opportunité, chaque environnement un défi à relever. 
+                        En quête d'une alternance en développement et bases de données, j'apporte ma flexibilité et ma créativité technique à votre entreprise.  
+                        Je suis actuellement à la recherche d'une alternance à Strasbourg et ses alentours.
+                    </p>
+
+                    <p>
+                        <a href="files/CV_2026-10-04_Angéline_PACREAU.pdf" target="_blank" class="btn">
+                            📄 Télécharger mon CV (PDF)
+                        </a>
+                    </p>
+                </div>
+        </section>
+
+        
+
+        <!-- Section Projets -->
+        <section id="projects">
+            <h2>Projets Récents</h2>
+            <div class="projects-grid">
+                
+                <!-- Projet 1 -->
+                <article class="project-card">
+                    <h3 class="project-title">Etude de simulations d'amas globulaires</h3>
+
+                    <div class="card-body">
+                        <div class="image-column">
+                            <img src="images/Projet1.png" alt="Capture d'écran du Projet 1" class="project-image">
+
+                            <div class="project-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Gestion de données</span>
+                                <span class="skill-tag">Automatisation</span>
+                            </div>
+                        </div>
+
+                        <div class="card-text-column">
+                            <p class="project-description">
+                                Dans le cadre de l’exploitation du supercalculateur Jean-Zay, j’ai conçu une chaîne de traitement automatisée en Python pour analyser des simulations N-corps massives (500 000 particules sur 6 500 snapshots). </p>
+                            <p> <b>Contexte :</b> L’objectif était d’extraire dynamiquement des paramètres structurels par coquilles sphériques pour comparer l’impact des modèles d’évolution stellaire sur la dynamique des amas. </p>
+                            <p> <b>Réalisation technique :</b> J’ai développé une architecture modulaire (Astropy, NumPy) optimisée pour l’exécution parallèle via Slurm, permettant l’ingestion de millions de lignes de données. 
+                                Cette approche a réduit le temps de calcul de 10 à 3 jours et mis en évidence l’influence critique de la formation des trous noirs sur la morphologie globale de l’amas.</p> 
+                            <p> <b>Apport personnel :</b> Première immersion dans un environnement HPC, ce projet a confirmé mon adaptabilité : j’ai appris en autonomie à orchestrer des calculs sur des serveurs distants complexes et 
+                                à optimiser du code pour le passage à l’échelle, transformant une contrainte technique en levier de performance scientifique.
+                            </p>
+                            
+                            <a href="files/Master_internship_final-1.pdf" target="_blank" class="btn">
+                                Explication du code en anglais
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projet 2 -->
+                <article class="project-card">
+                    <h3>Travail d'équipe sur une bataille navale</h3>
+
+                    <div class="card-body">
+                        <div class="image-column">
+                            <img src="images/Projet2.jpeg" alt="Capture d'écran du Projet 2" class="project-image">
+                            <div class="project-tags">
+                                <span class="skill-tag">C#</span>
+                                <span class="skill-tag">SQL/PostgreSQL</span>
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">Git/GitHub</span>
+                            </div>
+                        </div>
+
+                        <div class="card-text-column">
+                            <p class="project-description">
+                                <b>Contexte :</b> J'ai conçu, en équipe, une application web de jeu multijoueur en temps réel, pensée pour offrir une expérience fluide 
+                                et immersive où chaque action — du placement des navires à la résolution des tirs — est synchronisée instantanément entre les adversaires, sans rechargement de page. </p>
+                            <p> <b>Réalisation technique :</b> L'architecture repose sur une logique serveur robuste qui orchestre le cycle de vie complet des parties : 
+                                création de salons privés, file d'attente, phase stratégique et détection automatique des conditions de victoire. 
+                                Un système d'authentification sécurisé imposant des critères de complexité sur les mots de passe et gérant des sessions utilisateurs persistantes, 
+                                garantissant l'intégrité des règles et la fiabilité des états de jeu (grilles, tirs, statut des navires). L'interface offre un tableau de bord centralisé — 
+                                historique des matchs, sessions en cours, invitations — complété par un module de messagerie instantanée pour la communication en pleine partie. </p> 
+                            <p> <b>Apport personnel :</b> Ce projet m'a permis de développer une vision complète du cycle de développement, de la sécurité à l'expérience utilisateur. 
+                                J'ai appris à concevoir une logique métier fiable où la moindre erreur de synchronisation peut compromettre l'intégrité du jeu, ce qui m'a appris 
+                                la rigueur et la créativité dans la résolution de problèmes complexes.
+                            </p>
+                            
+                            <a href="https://github.com/TeamPOEI/battle-sheep.git" target="_blank" class="btn">Voir le code (GitHub)</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projet 3 -->
+                <article class="project-card">
+                    <h3>Projet personnel pour la collection</h3>
+
+                    <div class="card-body">
+                        <div class="image-column">
+                            <img src="images/Projet3.png" alt="Capture d'écran du Projet 3" class="project-image">
+                            <div class="project-tags">
+                                <span class="skill-tag">C#</span>
+                                <span class="skill-tag">SQL/PostgreSQL</span>
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">Git/GitHub</span>
+                            </div>
+                        </div>
+
+                        <div class="card-text-column">
+                            <p class="project-description">
+                                <b>Contexte :</b> J'ai développé une application web dédiée aux collectionneurs de photocards du groupe Ateez, permettant de parcourir un catalogue numérique, 
+                                de filtrer et catégoriser les cartes, et de générer des listes de souhaits personnalisées. </p>
+                            <p> <b>Réalisation technique :</b> L'implémentation repose sur une logique de filtrage et de catégorisation côté client, 
+                                couplée à une génération de documents PDF embarquée et à l'export de fichiers de configuration pour assurer la persistance des sélections utilisateur. </p>
+                            <p> <b>Apport personnel :</b> Au-delà de la réalisation, ce projet m'a appris à porter un regard critique sur ma propre architecture. 
+                                J'ai identifié les limites liées à l'absence de persistance serveur et à la gestion statique du corpus d'images — un vrai frein en termes de scalabilité et de maintenabilité. 
+                                Cette lucidité m'a conduit à définir une feuille de route de refonte vers une architecture pilotée par API, afin de découpler le frontend du backend, d'optimiser 
+                                les requêtes sur des volumes de données massifs et d'automatiser les mises à jour du catalogue. 
+                                C'est précisément cette capacité à anticiper la dette technique et à concevoir l'évolution d'un produit que je souhaite mettre au service d'une équipe.
+                            </p>
+                            
+                            <a href="https://github.com/AngeP04/AZApp.git" target="_blank" class="btn">Voir le code (GitHub)</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
         </section>
 
         <!-- Section Compétences -->
         <section id="skills">
-            <h2>Compétences Techniques</h2>
+            <h2> Résumé des Compétences Techniques</h2>
             <div class="skills-grid">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">SQL / PostgreSQL</span>
@@ -54,72 +181,8 @@
                 <span class="skill-tag">COBOL</span>
                 <span class="skill-tag">Git</span>
                 <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">Linux</span>
                 <!-- Ajoutez vos autres compétences ici -->
-            </div>
-        </section>
-
-        <!-- Section Projets -->
-        <section id="projects">
-            <h2>Projets Récents</h2>
-            <div class="projects-grid">
-                
-                <!-- Projet 1 -->
-                <article class="project-card">
-                    <h3>Etude de simulations d'amas globulaires</h3>
-                    <img src="images/Projet1.png" alt="Capture d'écran du Projet 1" class="project-image">
-                    <p class="project-description">
-                        Ce projet repose sur le développement d'une chaîne de traitement automatisée en Python pour analyser des simulations N-corps à grande échelle (500 000 particules) générées par le code Nbody6++GPU sur le supercalculateur Jean-Zay. 
-                        J'ai conçu un ensemble de scripts modulaires exploitant Astropy pour le parsing de fichiers et NumPy pour le calcul vectoriel, capables d'ingérer des snapshots complexes afin d'extraire des paramètres dynamiques et structurels clés. 
-                        Le tout calculé dynamiquement par coquilles sphériques et pour des sous-populations spécifiques. 
-                        L'architecture logicielle inclut des fonctions d'agrégation statistique, des algorithmes de suivi temporel d'objets individuels à travers ~5 000 snapshots, et une génération automatisée de visualisations, le tout optimisé pour une exécution parallèle via Slurm sur environnement HPC.</p>
-                    <button class="toggle-btn">Voir plus</button>
-                    <div class="project-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Gestion de données</span>
-                        <span class="skill-tag">Automatisation</span>
-                    </div>
-                    <a href="files/Master_internship_final-1.pdf" target="_blank" class="btn">
-                        Explication du code en anglais
-                    </a>
-                </article>
-
-                <!-- Projet 2 -->
-                <article class="project-card">
-                    <h3>Travail d'équipe sur une batalle navale</h3>
-                    <img src="images/Projet2.jpeg" alt="Capture d'écran du Projet 2" class="project-image">
-                    <p class="project-description">
-                        Ce projet consiste en une application web de jeu de bataille navale multi-joueurs temps réel, architecturée autour d’un système d’authentification sécurisé imposant des critères de complexité sur les mots de passe et gérant des sessions utilisateurs persistantes. 
-                        Le cœur de l’application repose sur une logique métier serveur robuste qui orchestre le cycle de vie complet des parties : de la création de salons privés et la mise en file d’attente, à la phase stratégique de placement des navires, jusqu’à la résolution des tirs et la détection automatique des conditions de victoire. 
-                        L’interface utilisateur offre un tableau de bord centralisé regroupant l’historique des matchs, les sessions en cours et les invitations en attente, tandis qu’un module de messagerie instantanée intégré, permet aux joueurs de communiquer durant les affrontements. 
-                        L’ensemble assure une synchronisation immédiate des états de jeu (grilles, tirs, statut des navires) entre les adversaires, garantissant l’intégrité des règles et une expérience fluide sans nécessiter de rechargement de page.</p>
-                    <button class="toggle-btn">Voir plus</button>
-                    <div class="project-tags">
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">Git/GitHub</span>
-                    </div>
-                    <a href="https://github.com/TeamPOEI/battle-sheep.git" target="_blank" class="btn">Voir le code (GitHub)</a>
-                </article>
-
-                <!-- Projet 3 -->
-                <article class="project-card">
-                    <h3>Projet personnelpour la collection</h3>
-                    <img src="images/Projet3.png" alt="Capture d'écran du Projet 3" class="project-image">
-                    <p class="project-description">Cette application web constitue un catalogue numérique et un générateur de listes de souhaits dédié aux photocards du groupe Ateez, implémentant une logique de filtrage et de catégorisation côté client. 
-                        L'architecture actuelle repose sur un traitement manuel des données et une génération de documents PDF embarquée, couplée à l'export de fichiers de configuration pour la persistance des sélections. 
-                        Cependant, l'absence de persistance serveur et la gestion statique du corpus d'images engendrent des limitations significatives en termes de scalabilité et de maintenabilité ; 
-                        une refonte vers une architecture pilotée par API s'impose pour découpler le frontend du backend, optimiser les requêtes de données massives et automatiser les mises à jour du catalogue.</p>
-                    <button class="toggle-btn">Voir plus</button>
-                    <div class="project-tags">
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">Git/GitHub</span>
-                    </div>
-                    <a href="https://github.com/AngeP04/AZApp.git" target="_blank" class="btn">Voir le code (GitHub)</a>
-                </article>
-
             </div>
         </section>
 
@@ -131,10 +194,21 @@
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2025</span>
+                        <span class="timeline-date">2025 (3 mois)</span>
                         <h3>Formation prête à l'emploi</h3>
                         <h4>Amaris Consulting</h4>
-                        <p>Programmation en COBOL et en .NET .</p>
+                        <p>Après avoir découvert que le monde de la recherche n'est pas pour moi, 
+                            je décide de me reconvertir dans ma deuxième passion: la programmation. J'ai le plaisir de 
+                            faire une formation pour apprendre le COBOL et l'univers du C#.
+                        </p>
+                        <div class="project-tags">
+                            <span class="skill-tag">Être à l'écoute</span>
+                            <span class="skill-tag">Réactivité</span>
+                            <span class="skill-tag">Travailler en équipe</span>
+                            <span class="skill-tag">Adaptabilité</span>
+                            <span class="skill-tag">Persévérance</span>
+                            <span class="skill-tag">Sens du service</span>
+                        </div>
                     </div>
                 </div>
 
@@ -144,8 +218,15 @@
                         <span class="timeline-date">2022 - 2024</span>
                         <h3>Master en Astrophysique et Data Science</h3>
                         <h4>Université de Strasbourg</h4>
-                        <p>Approfondissement des bases des données, projets complexes. 
-                            Projet de fin d'études : Analyse d'un téraoctet de données par automatisation.</p>
+                        <p>Découverte de la recherche et approfondissement des bases des données. 
+                            Mon projet de fin d'études, l'analyse d'un téraoctet de données par automatisation.
+                        </p>
+                        <div class="project-tags">
+                            <span class="skill-tag">Curiosité</span>
+                            <span class="skill-tag">Travailler en équipe</span>
+                            <span class="skill-tag">Autonomie</span>
+                            <span class="skill-tag">Rigueur et précision</span>
+                        </div>
                     </div>
                 </div>
 
@@ -155,7 +236,14 @@
                         <span class="timeline-date">2021 - 2022</span>
                         <h3>Licence Physique</h3>
                         <h4>Université de Strasbourg</h4>
-                        <p>Programmation Orientée Objet, langage C++ et premier projet complexe.</p>
+                        <p>Découverte de la programmation Orientée Objet avec le langage C++ et premier projet complexe 
+                            avec la mission de lancer un laser anti-missile.
+                        </p>
+                        <div class="project-tags">
+                            <span class="skill-tag">Travailler en équipe</span>
+                            <span class="skill-tag">Autonomie</span>
+                            <span class="skill-tag">Adaptabilité</span>
+                        </div>
                     </div>
                 </div>
 
@@ -165,7 +253,16 @@
                         <span class="timeline-date">2019 - 2021</span>
                         <h3>Classes Préparatoires Physique-Chimie</h3>
                         <h4>CPGE Brizeux - Quimper</h4>
-                        <p>Acquisition des fondamentaux : Algorithmique, Structures de données, Bases de données relationnelles et Programmation en langage Python et SQL.</p>
+                        <p>Découverte de la programmation et acquisition des fondamentaux : 
+                            Algorithmique, Structures de données et Bases de données relationnelles.
+                            Je me concentre sur mes études malgré le Covid-19 qui nous éloigne les uns
+                            des autres. 
+                        </p>
+                        <div class="project-tags">
+                            <span class="skill-tag">Organisation</span>
+                            <span class="skill-tag">Autonomie</span>
+                            <span class="skill-tag">Rigueur et précision</span>
+                        </div>
                     </div>
                 </div>
 
@@ -175,10 +272,53 @@
                         <span class="timeline-date">2019</span>
                         <h3>Baccalauréat Scientifique</h3>
                         <h4>Lycée Sainte Thérèse - Quimper</h4>
-                        <p>Option Physique-Chimie.</p>
+                        <p>Option Physique-Chimie parce que mon objectif du moment était de devenir 
+                            enseignant-chercheur en astrophysique. Pour le moment je ne fais que 
+                            rêver dans les magazines d'astronomie.
+                        </p>
+                        <div class="project-tags">
+                            <span class="skill-tag">Curiosité</span>
+                        </div>
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <section id="interests">
+            <h2>Centres d'intérêt</h2>
+            
+            <div class="interests-grid">
+                
+                <div class="interest-card">
+                    <div class="interest-icon">✨</div>
+                    <h3>Astronomie</h3>
+                    <p>Je suis les nouvelles découvertes en astrophysique et utilise mon téléscope quand l'occasion se présente.</p>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">🧶</div>
+                    <h3>Crochet</h3>
+                    <p>Devant un film ou une série, j'en suis à ma troisième couverture. J'aime suivre ou créer des modèles et offrir mes créations.</p>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">🎨</div>
+                    <h3>Dessin</h3>
+                    <p>Depuis mon enfance j'ai toujours eu la main créative et je continue dans mon temps libre à créer ce qui me passionne.</p>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">🚲</div>
+                    <h3>Cyclisme</h3>
+                    <p>Faire du vélo régulièrement m'aide à garder un bon équilibre entre concentration et énergie au quotidien.</p>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">🎲</div>
+                    <h3>Jeux de société</h3>
+                    <p>L'un des meilleurs moyen de réunir des amis autour d'une table et de rigoler.</p>
+                </div>
             </div>
         </section>
 

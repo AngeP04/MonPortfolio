@@ -1,0 +1,7 @@
+/home/asus/VisualStudioScripts/MonPortfolio/test-publish/MonPortfolio
+/home/asus/VisualStudioScripts/MonPortfolio/test-publish/appsettings.Development.json
+/home/asus/VisualStudioScripts/MonPortfolio/test-publish/appsettings.json
+/home/asus/VisualStudioScripts/MonPortfolio/test-publish/MonPortfolio.dll
+/home/asus/VisualStudioScripts/MonPortfolio/test-publish/MonPortfolio.deps.json
+/home/asus/VisualStudioScripts/MonPortfolio/test-publish/MonPortfolio.runtimeconfig.json
+/home/asus/VisualStudioScripts/MonPortfolio/test-publish/MonPortfolio.pdb
