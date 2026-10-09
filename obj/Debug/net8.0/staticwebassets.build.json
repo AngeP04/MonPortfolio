@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kTtl0/SwfLSnUoJQtoeJLZL6jNjhtxAxWpRCOf95Xxs=",
+  "Hash": "8eOEzxccVNP9GLzLmcvoyHn90L+DnDbI7W6oWVS1AS4=",
   "Source": "MonPortfolio",
   "BasePath": "_content/MonPortfolio",
   "Mode": "Default",
@@ -36,12 +36,12 @@
       "OriginalItemSpec": "wwwroot/css/style.css"
     },
     {
-      "Identity": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/files/CV_2026-10-04_Angéline_PACREAU.pdf",
+      "Identity": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/files/CV_Angéline_PACREAU.pdf",
       "SourceId": "MonPortfolio",
       "SourceType": "Discovered",
       "ContentRoot": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/",
       "BasePath": "_content/MonPortfolio",
-      "RelativePath": "files/CV_2026-10-04_Angéline_PACREAU.pdf",
+      "RelativePath": "files/CV_Angéline_PACREAU.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -52,7 +52,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/files/CV_2026-10-04_Angéline_PACREAU.pdf"
+      "OriginalItemSpec": "wwwroot/files/CV_Angéline_PACREAU.pdf"
     },
     {
       "Identity": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/files/Master_internship_final-1.pdf",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/files/Master_internship_final-1.pdf"
+    },
+    {
+      "Identity": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/images/Angeline.jpeg",
+      "SourceId": "MonPortfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/",
+      "BasePath": "_content/MonPortfolio",
+      "RelativePath": "images/Angeline.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Angeline.jpeg"
     },
     {
       "Identity": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/images/CV.jpg",

@@ -5,12 +5,16 @@
       "PackagePath": "staticwebassets/css/style.css"
     },
     {
-      "Id": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/files/CV_2026-10-04_Angéline_PACREAU.pdf",
-      "PackagePath": "staticwebassets/files/CV_2026-10-04_Angéline_PACREAU.pdf"
+      "Id": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/files/CV_Angéline_PACREAU.pdf",
+      "PackagePath": "staticwebassets/files/CV_Angéline_PACREAU.pdf"
     },
     {
       "Id": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/files/Master_internship_final-1.pdf",
       "PackagePath": "staticwebassets/files/Master_internship_final-1.pdf"
+    },
+    {
+      "Id": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/images/Angeline.jpeg",
+      "PackagePath": "staticwebassets/images/Angeline.jpeg"
     },
     {
       "Id": "/home/asus/VisualStudioScripts/MonPortfolio/wwwroot/images/CV.jpg",
