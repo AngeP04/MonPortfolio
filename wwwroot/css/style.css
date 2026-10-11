@@ -155,7 +155,7 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 
 .card-body {
     display: flex !important;       /* Force le mode flex */
-    flex-direction: row !important; /* Force l'alignement horizontal (Gauche-Droite) */
+    flex-direction: row; /* Force l'alignement horizontal (Gauche-Droite) */
     gap: 1.5rem;                    /* Espace entre image et texte */
     align-items: flex-start;        /* Aligne le haut de l'image avec le haut du texte */
     width: 100%;
@@ -574,7 +574,7 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
     /* --- CARTES PROJET (structure actuelle) --- */
     /* C'est ICI que ça ne marchait pas : on doit cibler .card-body, pas .project-card */
     .card-body {
-        flex-direction: column;    /* Image+tags au-dessus, texte en dessous */
+        flex-direction: column !important;     /* Image+tags au-dessus, texte en dessous */
         gap: 1rem;
     }
 
