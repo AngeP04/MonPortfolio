@@ -42,56 +42,39 @@ header {
 }
 
 @media (max-width: 600px) {
+    
+    /* --- HEADER --- */
     .header-content {
-        flex-direction: column; /* Passe en colonne sur petit écran */
+        flex-direction: column;
         text-align: center;
     }
     
     .header-text {
-        text-align: center; /* Recentre le texte sur mobile */
+        text-align: center;
     }
     
     .profile-img {
-        margin-bottom: 1rem; /* Ajoute un peu d'espace sous l'image sur mobile */
+        margin-bottom: 1rem;
     }
 
-    .timeline::after {
-        left: 15px; /* On rapproche la ligne du bord */
-    }
-    
-    .timeline-item {
-        padding-left: 45px; /* On réduit le padding gauche */
-    }
-    
-    .timeline-marker {
-        left: 7px; /* On recentre le point sur la nouvelle ligne */
-        width: 16px;
-        height: 16px;
-        border-width: 3px;
-    }
-
-    .project-card {
-        flex-direction: column; /* Repasse en mode vertical sur mobile */
-        gap: 1rem;
-    }
-
-    .project-image {
-        width: 100%; /* L'image prend toute la largeur sur mobile */
-        height: 200px;
-        flex-shrink: 0;
-    }
-
+    /* --- NAVBAR : prend toute la largeur et s'adapte --- */
     .header-nav {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.75rem;
+        flex-wrap: wrap;           /* Permet aux éléments de passer à la ligne si besoin */
+        gap: 0.5rem;
+        justify-content: center;   /* Centre le contenu sur mobile */
     }
     
     .nav-list {
         gap: 0.2rem;
+        flex-wrap: wrap;           /* Les liens passent à la ligne si trop nombreux */
+        justify-content: center;
+        width: 100%;
     }
     
     .nav-list a {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+        padding: 0.35rem 0.5rem;
     }
     
     .theme-toggle {
@@ -99,25 +82,70 @@ header {
         font-size: 0.8rem;
     }
     
-    /* On masque le texte du bouton pour ne garder que l'icône sur mobile */
     #theme-text {
         display: none;
     }
 
+    /* --- TIMELINE --- */
+    .timeline::after {
+        left: 15px;
+    }
+    
+    .timeline-item {
+        padding-left: 45px;
+    }
+    
+    .timeline-marker {
+        left: 7px;
+        width: 16px;
+        height: 16px;
+        border-width: 3px;
+    }
+
+    /* --- CARTES PROJET (structure actuelle) --- */
+    /* C'est ICI que ça ne marchait pas : on doit cibler .card-body, pas .project-card */
+    .card-body {
+        flex-direction: column;    /* Image+tags au-dessus, texte en dessous */
+        gap: 1rem;
+    }
+
+    .image-column {
+        width: 100%;               /* La colonne image prend toute la largeur */
+    }
+
+    .project-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .project-tags {
+        justify-content: center;   /* Centre les tags sous l'image */
+    }
+
+    .card-text-column {
+        width: 100%;
+    }
+
+    .card-actions {
+        justify-content: center;   /* Centre les boutons sur mobile */
+    }
+
+    /* --- SECTION À PROPOS --- */
     .about-container {
-        flex-direction: column; /* Empile image et texte sur mobile */
+        flex-direction: column;    /* Image au-dessus du texte */
         text-align: center;
         padding: 1.5rem;
     }
 
     .about-image-wrapper {
-        width: 250px; /* Un peu plus petit sur mobile */
+        width: 250px;
         height: 320px;
-        margin-bottom: 1.5rem;
+        margin: 0 auto 1.5rem auto; /* Centre l'image horizontalement */
     }
     
     .about-text {
-        text-align: left; /* Garde le texte aligné à gauche pour la lisibilité */
+        text-align: left;          /* Garde le texte lisible à gauche */
+        width: 100%;
     }
 }
 
