@@ -616,6 +616,10 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
         text-align: left;          /* Garde le texte lisible à gauche */
         width: 100%;
     }
+
+    header {
+        padding-top: 160px; 
+    }
 }
 
 footer {
