@@ -3,34 +3,58 @@ html {
 }
 
 :root {
-    --primary-color: #5025eb;
-    --text-color: #1f2937;
-    --bg-color: #f3f4f6;
+    --primary-color: #9B8FE0;        /* Violet lavande (le fond du badge) */
+    --primary-dark: #7C6FD0;         /* Violet plus soutenu (hover, accents) */
+    --primary-light: #E8E4F7;        /* Lavande très pâle (fonds de tags, hovers) */
+    --on-primary: #ffffff;
+    --accent: #2D2A3E;               /* Anthracite-violet (le texte "AP" du logo) */
+    
+    --text-color: #2D2A3E;
+    --bg-color: #FAF9FC;             /* Blanc légèrement lavande, pas blanc pur */
     --card-bg: #ffffff;
     --header-bg: #ffffff;
-    --shadow-color: rgba(0,0,0,0.1);
+    --shadow-color: rgba(124, 111, 208, 0.12);  /* Ombres teintées de violet */
+    
+    --link-color: #7C6FD0;
+    --link-hover: #5B4FB0;
 }
 
 body.dark-mode {
-    --text-color: #f3f4f6;       /* Texte clair */
-    --bg-color: #111827;         /* Fond très sombre (bleu nuit presque noir) */
-    --card-bg: #1f2937;          /* Cartes gris foncé */
-    --header-bg: #1f2937;
-    --shadow-color: rgba(0,0,0,0.3);
+    --text-color: #E8E4F7;
+    --bg-color: #1A1826;             /* Fond sombre tirant sur le violet, pas gris neutre */
+    --card-bg: #252236;
+    --header-bg: #252236;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    
+    --primary-color: #A79BE8;        /* Violet légèrement éclairci pour le contraste */
+    --primary-light: #2D2A44;
+    --on-primary: #1A1826;
+    --link-color: #A79BE8;
+    --link-hover: #C4B9F2;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;   /* Corps de texte moderne et lisible */
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
-    background-image: url('../images/M31.png'); /* Chemin vers votre image */
+    background-image: url('../images/fond.jpg'); /* Chemin vers votre image */
     background-size: cover;        /* L'image couvre tout l'écran sans être déformée */
     background-position: center;   /* Centre l'image */
     background-repeat: no-repeat;  /* Empêche l'image de se répéter en mosaïque */
     background-attachment: fixed;  /* L'image reste fixe quand on scrolle (effet parallaxe) */
+}
+
+h1, h2, h3, .project-title, .timeline-content h3 {
+    font-family: 'Marcellus', serif;    /* Titres élégants, esprit "sceau" */
+    font-weight: 400;
+}
+
+body p {
+    margin-bottom: 1rem;
+    text-align: justify;
 }
 
 header {
@@ -68,6 +92,40 @@ header {
 }
 
 h1 { margin: 0; color: var(--primary-color); }
+
+h2 {
+    font-family: 'Marcellus', serif;
+    font-size: 2rem;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;        /* Capitales espacées, comme le logo */
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--primary-color);
+    opacity: 0.4;                  /* Le double trait = double contour du logo */
+}
+
 .subtitle { color: #6b7280; margin-top: 0.5rem; }
 
 .container {
@@ -101,11 +159,14 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 
 .skill-tag {
     display: inline-block; /* CRUCIAL : La bulle ne prend que la largeur du texte */
-    background: #e0e7ff;
+    background: var(--primary-light);
     color: var(--primary-color);
-    padding: 0.5rem 1rem;
+    padding:  0.3rem 0.85rem;
     border-radius: 20px;
-    font-weight: bold;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border: 1px solid var(--primary-color);
     white-space: nowrap;   /* Empêche le texte de se couper en deux lignes */
     width: auto; 
     max-width: 100%;
@@ -135,6 +196,10 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
     display: flex;
     flex-direction: column;  /* Titre au-dessus, corps en dessous */
     gap: 1rem; /* Espace entre le titre et le reste (image/texte) */
+
+    position: relative;
+    border: 1px solid var(--primary-light);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .project-card p {
@@ -143,6 +208,21 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 
 .project-card:hover { transform: translateY(-5px); }
 .project-card h3 { margin-top: 0; }
+
+.project-card::after {
+    content: '';
+    position: absolute;
+    inset: 6px;                    /* Un contour intérieur décalé = double cadre */
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.project-card:hover::after {
+    opacity: 0.5;
+}
 
 .project-title {
     margin: 0 0 0.5rem 0;
@@ -155,7 +235,7 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 
 .card-body {
     display: flex !important;       /* Force le mode flex */
-    flex-direction: row; /* Force l'alignement horizontal (Gauche-Droite) */
+    flex-direction: row !important; /* Force l'alignement horizontal (Gauche-Droite) */
     gap: 1.5rem;                    /* Espace entre image et texte */
     align-items: flex-start;        /* Aligne le haut de l'image avec le haut du texte */
     width: 100%;
@@ -163,12 +243,20 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 
 .btn {
     display: inline-block;
-    background: var(--primary-color);
-    color: white;
+    background: white;
+    color: var(--primary-color);          /* Blanc forcé sur le fond lavande */
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 4px;
     margin-top: 1rem;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+
+.btn:hover {
+    background: var(--primary-dark);
+    color: white;
 }
 
 .project-image {
@@ -220,22 +308,6 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
     flex-shrink: 0; /* Empêche la colonne de rétrécir */
 }
 
-/* Le bouton Voir plus / Voir moins */
-.toggle-btn {
-    background: none;
-    border: none;
-    color: var(--primary-color);
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0.5rem 0 0 0;
-    font-size: 0.9rem;
-    display: none; /* Caché par défaut, affiché seulement si le texte est long */
-}
-
-.toggle-btn:hover {
-    text-decoration: underline;
-}
-
 /* S'assurer que les boutons d'action sont bien en bas */
 .card-actions {
     margin-top: auto; /* Pousse les boutons vers le bas si l'espace le permet */
@@ -268,8 +340,8 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 }
 
 .theme-toggle:hover {
-    background-color: var(--text-color);
-    color: var(--bg-color);
+    background-color: var(--primary-color);
+    color: var(--on-primary);
 }
 
 /* Conteneur principal de la timeline */
@@ -408,14 +480,14 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
 /* Effet au survol */
 .nav-list a:hover {
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--on-primary);
     transform: translateY(-2px);
 }
 
 /* Effet pour la section active (optionnel, géré par le scroll) */
 .nav-list a.active {
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--on-primary);
 }
 
 /* --- Section Centres d'intérêt --- */
@@ -506,8 +578,88 @@ h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; disp
     color: var(--text-color);
 }
 
-.about-text p {
-    margin-bottom: 1rem;
+/* Couleur par défaut de tous les liens */
+a {
+    color: var(--link-color);
+    text-decoration: none;   /* Enlève le soulignement */
+}
+
+/* Lien déjà visité */
+a:visited {
+    color: var(--link-color);
+}
+
+/* Au survol de la souris */
+a:hover {
+    color: var(--on-primary);   
+    text-decoration: underline;
+}
+
+#contact a:hover {
+    color: var(--link-hover);   
+    text-decoration: underline;
+}
+
+/* Au moment du clic */
+a:active {
+    color: #1e40af;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--on-primary);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px);
+}
+
+.nav-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+}
+
+.nav-logo {
+    margin-right: 1rem;
+    line-height: 0;
 }
 
 @media (max-width: 600px) {
